@@ -1,0 +1,31 @@
+// version: 1.1-SNAPSHOT, chiselVersion: 3.5-SNAPSHOT, for more information, visit https://github.com/easysoc/layered-firrtl
+algorithm: layered
+hierarchyHandling: INCLUDE_CHILDREN
+
+node StepOne {
+    portConstraints: FIXED_SIDE
+    nodeLabels.placement: "H_CENTER V_TOP OUTSIDE"
+    nodeSize.constraints: "PORTS PORT_LABELS NODE_LABELS"
+    label "StepOne"
+    
+    port clock {
+        ^port.side: WEST
+        label "clock"
+    }
+    port reset {
+        ^port.side: WEST
+        label "reset"
+    }
+    port io_one {
+        ^port.side: EAST
+        label "io_one"
+    }
+    node lit1 {
+        nodeLabels.placement: "H_CENTER V_CENTER INSIDE"
+        nodeSize.constraints: "NODE_LABELS"
+        label "1"
+    }
+    edge e11 : StepOne.lit1 -> StepOne.io_one
+    
+}
+

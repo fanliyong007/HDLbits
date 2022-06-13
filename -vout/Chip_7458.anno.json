@@ -1,0 +1,32 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Chip_7458|Chip_7458>io_p1y",
+    "sources":[
+      "~Chip_7458|Chip_7458>io_p1c",
+      "~Chip_7458|Chip_7458>io_p1f",
+      "~Chip_7458|Chip_7458>io_p1a",
+      "~Chip_7458|Chip_7458>io_p1b",
+      "~Chip_7458|Chip_7458>io_p1d",
+      "~Chip_7458|Chip_7458>io_p1e"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Chip_7458|Chip_7458>io_p2y",
+    "sources":[
+      "~Chip_7458|Chip_7458>io_p2a",
+      "~Chip_7458|Chip_7458>io_p2b",
+      "~Chip_7458|Chip_7458>io_p2c",
+      "~Chip_7458|Chip_7458>io_p2d"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"-vout"
+  }
+]
