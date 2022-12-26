@@ -9,30 +9,26 @@
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Vector0|Vector0>io_o2",
+    "sink":"~Vectorgates|Vectorgates>io_out_not",
     "sources":[
-      "~Vector0|Vector0>io_vec"
+      "~Vectorgates|Vectorgates>io_b",
+      "~Vectorgates|Vectorgates>io_a"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Vector0|Vector0>io_outv",
+    "sink":"~Vectorgates|Vectorgates>io_out_or_bitwise",
     "sources":[
-      "~Vector0|Vector0>io_vec"
+      "~Vectorgates|Vectorgates>io_a",
+      "~Vectorgates|Vectorgates>io_b"
     ]
   },
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Vector0|Vector0>io_o1",
+    "sink":"~Vectorgates|Vectorgates>io_out_or_logical",
     "sources":[
-      "~Vector0|Vector0>io_vec"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Vector0|Vector0>io_o0",
-    "sources":[
-      "~Vector0|Vector0>io_vec"
+      "~Vectorgates|Vectorgates>io_a",
+      "~Vectorgates|Vectorgates>io_b"
     ]
   }
 ]

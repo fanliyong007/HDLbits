@@ -14,9 +14,9 @@ lazy val root = (project in file("."))
   .settings(
     name := "HDLbits",
     libraryDependencies ++= Seq(
-      "edu.berkeley.cs" %% "chisel3" % "3.5-SNAPSHOT",
-      "org.easysoc" %% "layered-firrtl" % "1.1-SNAPSHOT",
-      "edu.berkeley.cs" %% "chiseltest" % "0.5-SNAPSHOT" % "test"
+      "edu.berkeley.cs" %% "chisel3" % "3.5-SNAPSHOT"
+//      "org.easysoc" %% "layered-firrtl" % "1.1-SNAPSHOT",
+//      "edu.berkeley.cs" %% "chiseltest" % "0.5-SNAPSHOT" % "test"
     ),
     scalacOptions ++= Seq(
       "-language:reflectiveCalls",
