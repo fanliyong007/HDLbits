@@ -14,9 +14,5 @@ object StepOne extends App {
   // emitVerilog
   (new ChiselStage).emitVerilog(new StepOne,Array("-td","vout"))
 
-  // generate graph files for circuit visualization
-  (new layered.stage.ElkStage).execute(
-    Array("-td", "vout", "--lowFir"),
-    Seq(ChiselGeneratorAnnotation(() => new StepOne))
-  )
+
 }
