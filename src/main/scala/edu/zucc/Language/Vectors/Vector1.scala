@@ -3,7 +3,7 @@ package edu.zucc.Language.Vectors
 import chisel3._
 import chisel3.stage.ChiselStage
 
-class Vector1 extends RawModule {
+class Vector1 extends Module {
   val io=IO(new Bundle() {
     val in =Input(UInt(16.W))
     val out_hi=Output(UInt(8.W))
