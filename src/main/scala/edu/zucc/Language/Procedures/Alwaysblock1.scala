@@ -11,9 +11,9 @@ class Alwaysblock1 extends Module {
   val out_alwaysblock = IO(Output(UInt(1.W)))
 
   val tmp=Reg(UInt(1.W))
-  out_assign:= a & b
+  out_assign := a & b
   tmp := a & b
-  out_alwaysblock:=tmp
+  out_alwaysblock := tmp
 }
 
 object Alwaysblock1 extends App{
