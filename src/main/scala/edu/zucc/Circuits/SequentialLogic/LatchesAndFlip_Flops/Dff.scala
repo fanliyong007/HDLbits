@@ -10,6 +10,6 @@ class Dff extends Module{
   q:=tmp_q
   tmp_q:=d
 }
-object Bcdadd100 extends App{
+object Dff extends App{
   (new ChiselStage).emitVerilog(new Dff,Array("-td","vout"))
 }

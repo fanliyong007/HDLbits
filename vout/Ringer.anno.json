@@ -1,0 +1,26 @@
+[
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"vout"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Ringer|Ringer>ringer",
+    "sources":[
+      "~Ringer|Ringer>ring",
+      "~Ringer|Ringer>vibrate_mode"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Ringer|Ringer>motor",
+    "sources":[
+      "~Ringer|Ringer>ring",
+      "~Ringer|Ringer>vibrate_mode"
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+#if ((${PACKAGE_NAME} && ${PACKAGE_NAME} != ""))package ${PACKAGE_NAME} #end
+#parse("File Header.java")
+
+import chisel3._
+import chisel3.stage.ChiselStage
+
+class ${NAME} extends RawModule {
+  val a = IO(Input(Bool()))
+  val b = IO(Input(Bool()))
+  val out = IO(Output(Bool()))
+}
+
+object ${NAME} extends App{
+  (new ChiselStage).emitVerilog(new ${NAME},Array("-td","vout"))
+}
