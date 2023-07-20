@@ -1,0 +1,18 @@
+[
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"vout"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Mux256to1|Mux256to1>out",
+    "sources":[
+      "~Mux256to1|Mux256to1>in",
+      "~Mux256to1|Mux256to1>sel"
+    ]
+  }
+]
