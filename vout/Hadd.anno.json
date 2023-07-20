@@ -1,0 +1,26 @@
+[
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"vout"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Hadd|Hadd>sum",
+    "sources":[
+      "~Hadd|Hadd>a",
+      "~Hadd|Hadd>b"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Hadd|Hadd>cout",
+    "sources":[
+      "~Hadd|Hadd>b",
+      "~Hadd|Hadd>a"
+    ]
+  }
+]
