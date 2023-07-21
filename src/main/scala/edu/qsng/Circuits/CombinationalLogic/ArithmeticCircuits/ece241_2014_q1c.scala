@@ -10,13 +10,8 @@ class ece241_2014_q1c extends Module {
   val s = IO(Output(UInt(8.W)))
   val overflow = IO(Output(Bool()))
 
-
-  val myadder = Module(new Adder(8))
-  myadder.io.A := a
-  myadder.io.B := b
-  myadder.io.Cin := 0.U
-  overflow := myadder.io.Cout(7)
-  s := myadder.io.Sum
+  s := a+b
+  overflow := ~( a(7) ^ b(7) ) & ( s(7) =/= a(7) )
 }
 
 object ece241_2014_q1c extends App {
