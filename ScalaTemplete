@@ -10,7 +10,7 @@ class ${NAME} extends RawModule {
   val d = IO(Input(UInt(8.W)))
   val q = IO(Output(UInt(8.W)))
 //(~clk.asUInt).asBool.asClock can  be triggered by the negative edge of clk.
-  withClockAndReset(clk, reset) {//
+  withClockAndReset(clk, reset) {
 
   }
 }

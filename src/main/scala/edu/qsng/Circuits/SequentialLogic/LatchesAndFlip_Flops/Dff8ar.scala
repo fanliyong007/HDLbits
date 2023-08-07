@@ -9,18 +9,11 @@ class Dff8ar  extends RawModule {
   val d = IO(Input(UInt(8.W)))
   val q = IO(Output(UInt(8.W)))
   //(~clk.asUInt).asBool.asClock can  be triggered by the negative edge of clk.
-  withClockAndReset(areset.asClock,areset){
-    withClock(clk) {
-      val myReg = Reg(UInt(8.W))
-      when(areset) {
-        myReg := 0.U
-      }.otherwise {
-        myReg := d
-      }
+  withClockAndReset(clk,areset.asAsyncReset){
+      val myReg = RegInit(UInt(8.W),false.B)
+      myReg := d
       q := myReg
     }
-  }
-
 }
 
 object Dff8ar extends App {

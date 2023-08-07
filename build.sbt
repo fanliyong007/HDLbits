@@ -2,7 +2,7 @@
 
 ThisBuild / scalaVersion     := "2.12.13"
 ThisBuild / version          := "1.0.0"
-ThisBuild / organization     := "edu.zucc"
+ThisBuild / organization     := "edu.qsng"
 ThisBuild / transitiveClassifiers := Seq(Artifact.SourceClassifier)
 
 resolvers ++= Seq(
