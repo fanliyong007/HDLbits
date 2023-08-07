@@ -2,15 +2,23 @@ package edu.qsng.Circuits.SequentialLogic.LatchesAndFlip_Flops
 
 import chisel3._
 import chisel3.stage.ChiselStage
-
-class Dff8p extends Module {
+class Dff8p extends RawModule {
+  val clk = IO(Input(Clock()))
+  val reset = IO(Input(Bool()))
   val d = IO(Input(UInt(8.W)))
   val q = IO(Output(UInt(8.W)))
-  val u_reg = RegInit(UInt(8.W), 1.U)
-  withReset(){
 
+  withClockAndReset((~clk.asUInt).asBool.asClock, reset) {
+    val dffReg = RegInit(0x34.U(8.W))
+    when(reset.asBool) {
+      dffReg := 0x34.U(8.W)
+    }.otherwise {
+      dffReg := d
+    }
+    q := dffReg
   }
 }
+
 object Dff8p extends App {
   (new ChiselStage).emitVerilog(new Dff8p, Array("-td", "vout"))
-}
+  }

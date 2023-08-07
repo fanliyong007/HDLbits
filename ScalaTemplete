@@ -5,11 +5,15 @@ import chisel3._
 import chisel3.stage.ChiselStage
 
 class ${NAME} extends RawModule {
-  val a = IO(Input(Bool()))
-  val b = IO(Input(Bool()))
-  val out = IO(Output(Bool()))
-}
+  val clk = IO(Input(Clock()))
+  val reset = IO(Input(Bool()))
+  val d = IO(Input(UInt(8.W)))
+  val q = IO(Output(UInt(8.W)))
+//(~clk.asUInt).asBool.asClock can  be triggered by the negative edge of clk.
+  withClockAndReset(clk, reset) {//
 
+  }
+}
 object ${NAME} extends App{
   (new ChiselStage).emitVerilog(new ${NAME},Array("-td","vout"))
 }

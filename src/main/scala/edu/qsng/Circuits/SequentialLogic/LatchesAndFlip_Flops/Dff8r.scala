@@ -8,7 +8,7 @@ class Dff8r extends Module {
   val q = IO(Output(UInt(8.W)))
   val u_reg = RegInit(UInt(8.W),0.U)
   u_reg := d
-  q := u_reg 
+  q := u_reg
 }
 
 object Dff8r extends App {
