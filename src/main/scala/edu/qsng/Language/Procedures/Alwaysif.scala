@@ -1,9 +1,6 @@
 package edu.qsng.Language.Procedures
 
-import chisel3.stage.ChiselStage
-import chisel3.util._
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Alwaysif extends Module {
   val a=IO(Input(UInt(1.W)))
@@ -26,10 +23,4 @@ class Alwaysif extends Module {
   }.elsewhen((sel_b1) && (sel_b2)) {
     tmp := b
   }
-
-
-
-}
-object Alwaysif extends App{
-  (new ChiselStage).emitVerilog(new Alwaysif,Array("-td","vout"))
 }

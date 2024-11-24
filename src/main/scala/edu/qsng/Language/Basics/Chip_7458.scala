@@ -1,7 +1,6 @@
 package edu.qsng.Language.Basics
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Chip_7458 extends RawModule {
   val io = IO(new Bundle {
@@ -22,7 +21,3 @@ class Chip_7458 extends RawModule {
   io.p1y := (io.p1a&io.p1b&io.p1c)|(io.p1d&io.p1e&io.p1f)
   io.p2y := (io.p2a&io.p2b)|(io.p2c&io.p2d)
 }
-object Chip_7458 extends App{
-  (new ChiselStage).emitVerilog(new Chip_7458,Array("-td","vout"))
-}
-

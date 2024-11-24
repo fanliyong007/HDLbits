@@ -1,7 +1,6 @@
 package edu.qsng.Language.Vectors
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import chisel3.util._
 
 class Vector100r extends RawModule {
@@ -10,7 +9,4 @@ class Vector100r extends RawModule {
     val out=Output(UInt(100.W))
   })
   io.out:=Reverse(io.in)
-}
-object Vector100r extends App{
-  (new ChiselStage).emitVerilog(new Vector100r,Array("-td","vout"))
 }

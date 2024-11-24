@@ -1,6 +1,5 @@
 package edu.qsng.Language.More
 
-import chisel3.stage.ChiselStage
 import chisel3.util._
 import chisel3._
 class Gates100 extends RawModule {
@@ -12,7 +11,4 @@ class Gates100 extends RawModule {
   out_and :=in.andR
   out_or :=in.orR
   out_xor :=in.xorR
-}
-object Gates100 extends App{
-  (new ChiselStage).emitVerilog(new Gates100,Array("-td","vout"))
 }

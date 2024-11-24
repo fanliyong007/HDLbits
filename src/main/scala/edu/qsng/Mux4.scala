@@ -1,7 +1,6 @@
 package edu.qsng
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Mux2 extends Module {
   val io = IO(new Bundle {
@@ -40,6 +39,3 @@ class Mux4 extends Module {
   io.out := m3.io.out
 }
 
-object Mux4 extends App{
-  (new ChiselStage).emitVerilog(new Mux4,Array("-td","vout"))
-}

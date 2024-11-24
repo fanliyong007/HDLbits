@@ -1,6 +1,5 @@
 package edu.qsng.Language.Procedures
 
-import chisel3.stage.ChiselStage
 import chisel3.util._
 import chisel3._
 
@@ -14,8 +13,4 @@ class Alwaysblock1 extends Module {
   out_assign := a & b
   tmp := a & b
   out_alwaysblock := tmp
-}
-
-object Alwaysblock1 extends App{
-  (new ChiselStage).emitVerilog(new Alwaysblock1,Array("-td","vout"))
 }

@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.BasicGates
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Gates  extends RawModule {
   val a = IO(Input(Bool()))
@@ -20,9 +19,4 @@ class Gates  extends RawModule {
   out_nor := ~(a | b)
   out_xnor := ~(a ^ b)
   out_anotb := a & ~b
-}
-
-object Gates extends App{
-
-  (new ChiselStage).emitVerilog(new Gates,Array("-td","vout"))
 }

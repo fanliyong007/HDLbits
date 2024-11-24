@@ -1,7 +1,6 @@
 package edu.qsng.Language.Vectors
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Gates4 extends RawModule {
   val io = IO(new Bundle {
@@ -13,10 +12,4 @@ class Gates4 extends RawModule {
   io.out_and := io.in(0)&io.in(1)&io.in(2)&io.in(3)
   io.out_or  := io.in(0)|io.in(1)|io.in(2)|io.in(3)
   io.out_xor := io.in(0)^io.in(1)^io.in(2)^io.in(3)
-
-
-}
-
-object Gates4 extends App{
-  (new ChiselStage).emitVerilog(new Gates4,Array("-td","vout"))
 }

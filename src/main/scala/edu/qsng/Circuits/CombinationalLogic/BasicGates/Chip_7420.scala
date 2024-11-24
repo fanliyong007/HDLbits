@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.BasicGates
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Chip_7420 extends RawModule {
   val p1a = IO(Input(Bool()))
@@ -16,8 +15,4 @@ class Chip_7420 extends RawModule {
   val p2y = IO(Output(Bool()))
   p1y := ~(p1a & p1b & p1c & p1d)
   p2y := ~(p2a & p2b & p2c & p2d)
-}
-
-object Chip_7420 extends App {
-  (new ChiselStage).emitVerilog(new Chip_7420, Array("-td", "vout"))
 }

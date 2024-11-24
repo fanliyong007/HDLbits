@@ -4,7 +4,6 @@ package edu.qsng.Language.More
 //  To encourage you to actually instantiate full adders, also output the carry-out from each full adder
 //in the ripple-carry adder. cout[99] is the final carry-out from the last full adder,
 // and is the carry-out you usually see.
-import chisel3.stage.ChiselStage
 import chisel3.util._
 import chisel3._
 import chisel3.internal.firrtl.Width
@@ -25,7 +24,3 @@ class Adder100i extends Module {
   sum := myadder.io.Sum
 }
 
-
-object Adder100i extends App{
-  (new ChiselStage).emitVerilog(new Adder100i,Array("-td","vout"))
-}

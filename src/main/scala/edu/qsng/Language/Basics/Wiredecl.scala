@@ -1,8 +1,6 @@
 package edu.qsng.Language.Basics
 
 import chisel3._
-import chisel3.stage.ChiselStage
-
 class Wiredecl extends RawModule {
   val io = IO(new Bundle {
     val a=Input(UInt(1.W))
@@ -18,6 +16,3 @@ class Wiredecl extends RawModule {
   io.out_d := ~tmp_wire
 }
 
-object Wiredecl extends App{
-  (new ChiselStage).emitVerilog(new Wiredecl(),Array("-td","vout"))
-}

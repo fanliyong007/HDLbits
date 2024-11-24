@@ -1,8 +1,8 @@
 package edu.qsng.Circuits.CombinationalLogic.ArithmeticCircuits
 
-import Chisel.Cat
-import chisel3.{Wire, _}
-import chisel3.stage.ChiselStage
+import chisel3._
+import chisel3.util.Cat
+import circt.stage.ChiselStage
 import edu.qsng.Language.More.bcd_fadd
 
 class Bcdadd4 extends RawModule {
@@ -29,6 +29,9 @@ class Bcdadd4 extends RawModule {
 }
 
 
-object Bcdadd4 extends App {
-  (new ChiselStage).emitVerilog(new Bcdadd4, Array("-td", "vout"))
+object Bcdadd4 extends App{
+  ChiselStage.emitSystemVerilogFile(
+    new Bcdadd4,
+    firtoolOpts = Array("-disable-all-randomization", "-strip-debug-info")
+  )
 }

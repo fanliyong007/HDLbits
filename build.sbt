@@ -1,31 +1,25 @@
 // See README.md for license details.
 
-ThisBuild / scalaVersion     := "2.12.13"
+ThisBuild / scalaVersion     := "2.13.12"
 ThisBuild / version          := "1.0.0"
 ThisBuild / organization     := "edu.qsng"
 ThisBuild / transitiveClassifiers := Seq(Artifact.SourceClassifier)
 
-resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots"),
-  Resolver.sonatypeRepo("releases")
-)
+val chiselVersion = "6.5.0"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "HDLbits",
+    name := "%NAME%",
     libraryDependencies ++= Seq(
-      "edu.berkeley.cs" %% "chisel3" % "3.5-SNAPSHOT"
-//      "org.easysoc" %% "layered-firrtl" % "1.1-SNAPSHOT",
-//      "edu.berkeley.cs" %% "chiseltest" % "0.5-SNAPSHOT" % "test"
+      "org.chipsalliance" %% "chisel" % chiselVersion,
+      "org.scalatest" %% "scalatest" % "3.2.16" % "test",
     ),
     scalacOptions ++= Seq(
       "-language:reflectiveCalls",
       "-deprecation",
       "-feature",
-      "-Xcheckinit"
+      "-Xcheckinit",
+      "-Ymacro-annotations",
     ),
-    addCompilerPlugin("edu.berkeley.cs" % "chisel3-plugin" % "3.5-SNAPSHOT" cross CrossVersion.full),
-    addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
+    addCompilerPlugin("org.chipsalliance" % "chisel-plugin" % chiselVersion cross CrossVersion.full),
   )
-
-

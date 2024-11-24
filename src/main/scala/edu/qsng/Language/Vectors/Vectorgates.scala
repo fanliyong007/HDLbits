@@ -1,7 +1,6 @@
 package edu.qsng.Language.Vectors
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import chisel3.util._
 class Vectorgates extends RawModule {
   val io=IO(new Bundle() {
@@ -16,7 +15,4 @@ class Vectorgates extends RawModule {
   //强制转换为Bool型后才能类型匹配使用||
   io.out_not := Cat(~io.b,~io.a)
 
-}
-object Vectorgates extends App{
-  (new ChiselStage).emitVerilog(new Vectorgates,Array("-td","vout"))
 }

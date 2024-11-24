@@ -1,8 +1,7 @@
 package edu.qsng.Circuits.SequentialLogic.LatchesAndFlip_Flops
 
-import Chisel.Cat
 import chisel3._
-import chisel3.stage.ChiselStage
+import chisel3.util.Cat
 
 class Dff16e extends RawModule {
   val clk = IO(Input(Clock()))
@@ -24,8 +23,4 @@ class Dff16e extends RawModule {
       myReg := d
     }
   }
-}
-
-object Dff16e extends App {
-  (new ChiselStage).emitVerilog(new Dff16e, Array("-td", "vout"))
 }

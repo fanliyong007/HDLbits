@@ -1,6 +1,5 @@
 package edu.qsng.Language.Procedures
 
-import chisel3.stage.ChiselStage
 import chisel3.util.{is, _}
 import chisel3._
 class Alwayscase2  extends Module {
@@ -17,7 +16,4 @@ class Alwayscase2  extends Module {
 //    is ("b?100".U) {tmp_pos := "b10".U}
 //    is ("b1000".U) {tmp_pos := "b11".U}
 //  }
-}
-object Alwayscase2 extends App{
-  (new ChiselStage).emitVerilog(new Alwayscase2,Array("-td","vout"))
 }

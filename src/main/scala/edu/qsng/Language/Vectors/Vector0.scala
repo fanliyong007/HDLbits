@@ -1,7 +1,6 @@
 package edu.qsng.Language.Vectors
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Vector0 extends RawModule {
   val io = IO(new Bundle {
@@ -15,8 +14,4 @@ class Vector0 extends RawModule {
   io.o2:=io.vec(2)
   io.o1:=io.vec(1)
   io.o0:=io.vec(0)
-}
-
-object Vector0 extends App{
-  (new ChiselStage).emitVerilog(new Vector0,Array("-td","vout"))
 }

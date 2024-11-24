@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.BasicGates
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Thermostat extends RawModule {
   val too_cold = IO(Input(Bool()))
@@ -16,6 +15,3 @@ class Thermostat extends RawModule {
   fan :=  (heater | aircon) | fan_on
 }
 
-object Thermostat extends App {
-  (new ChiselStage).emitVerilog(new Thermostat, Array("-td", "vout"))
-}

@@ -1,9 +1,9 @@
 package edu.qsng.Circuits.CombinationalLogic.KarnaughMapCircuit
 
-import Chisel.Cat
+
 import chisel3._
-import chisel3.stage.ChiselStage
-import chisel3.util.{is, switch}
+import chisel3.util.Cat
+
 
 class ece241_2014_q3 extends RawModule {
   val c = IO(Input(Bool()))
@@ -12,6 +12,3 @@ class ece241_2014_q3 extends RawModule {
   mux_in := Cat(c | d,"b0".U,~d,c&d)
 }
 
-object ece241_2014_q3 extends App {
-  (new ChiselStage).emitVerilog(new ece241_2014_q3, Array("-td", "vout"))
-}

@@ -1,7 +1,6 @@
 package edu.qsng.Language.Procedures
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import chisel3.util._
 
 class Alwayscasez extends Module {
@@ -12,7 +11,4 @@ class Alwayscasez extends Module {
 
   pos := pos_reg
   pos_reg := PriorityEncoder(in)
-}
-object Alwayscasez extends App{
-  (new ChiselStage).emitVerilog(new Alwayscasez,Array("-td","vout"))
 }

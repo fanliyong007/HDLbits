@@ -1,8 +1,6 @@
 package edu.qsng.Language.Basics
 
 import chisel3._
-import chisel3.stage.ChiselStage
-
 class Xnorgate extends RawModule {
   val io = IO(new Bundle {
     val a=Input(UInt(1.W))
@@ -11,8 +9,3 @@ class Xnorgate extends RawModule {
   })
   io.out := ~(io.a^io.b)
 }
-
-object Xnorgate extends App{
-  (new ChiselStage).emitVerilog(new Xnorgate,Array("-td","vout"))
-}
-

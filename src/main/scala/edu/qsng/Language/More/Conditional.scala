@@ -1,6 +1,5 @@
 package edu.qsng.Language.More
 
-import chisel3.stage.ChiselStage
 import chisel3.util._
 import chisel3._
 
@@ -16,6 +15,3 @@ class Conditional extends RawModule {
   min:=Mux(m1<m2,m1,m2)
 }
 
-object Conditional extends App{
-  (new ChiselStage).emitVerilog(new Conditional,Array("-td","vout"))
-}

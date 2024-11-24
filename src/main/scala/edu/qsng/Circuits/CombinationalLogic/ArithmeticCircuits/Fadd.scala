@@ -1,7 +1,8 @@
 package edu.qsng.Circuits.CombinationalLogic.ArithmeticCircuits
 
 import chisel3._
-import chisel3.stage.ChiselStage
+import circt.stage.ChiselStage
+import edu.qsng.Zero
 
 class Fadd extends RawModule {
   val a = IO(Input(Bool()))
@@ -14,6 +15,9 @@ class Fadd extends RawModule {
   cout:= a & b | a & cin | b & cin
 }
 
-object Fadd extends App {
-  (new ChiselStage).emitVerilog(new Fadd, Array("-td", "vout"))
+object Fadd extends App{
+  ChiselStage.emitSystemVerilogFile(
+    new Fadd,
+    firtoolOpts = Array("-disable-all-randomization", "-strip-debug-info")
+  )
 }

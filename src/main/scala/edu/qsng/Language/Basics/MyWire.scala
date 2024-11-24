@@ -1,7 +1,6 @@
 package edu.qsng.Language.Basics
 
 import chisel3._
-import chisel3.stage.ChiselStage
 // 题目主要大意为创建一个模块拥有一个输入一个输出并将输入输出连接起来，
 // 需要注意的是在:=语句当中并不是像C语言那种赋值它的功能更像是将
 // 两个端口物理意义上的连接起来，时刻要注意我们是在描述硬件逻辑而不是
@@ -37,10 +36,5 @@ class MyWire extends RawModule {
     val out = Output(UInt(1.W))
   })
   io.out := io.in
-}
-
-object MyWire extends App{
-
-  (new ChiselStage).emitVerilog(new MyWire,Array("-td","vout"))
 }
 

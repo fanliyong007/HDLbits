@@ -1,7 +1,6 @@
 package edu.qsng.Language.Procedures
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import chisel3.util._
 
 class Alwaysnolatches extends Module {
@@ -31,7 +30,4 @@ class Alwaysnolatches extends Module {
     is("he075".U) {up_tmp:="b1".U}
   }
 
-}
-object Alwaysnolatches extends App{
-  (new ChiselStage).emitVerilog(new Alwaysnolatches,Array("-td","vout"))
 }

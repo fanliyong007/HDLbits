@@ -1,8 +1,9 @@
 package edu.qsng.Circuits.CombinationalLogic.ArithmeticCircuits
 
 import chisel3._
-import chisel3.stage.ChiselStage
+import circt.stage.ChiselStage
 import edu.qsng.Language.More.Adder
+import edu.qsng.Zero
 
 class Adder100 extends Module {
   val a = IO(Input(UInt(100.W)))
@@ -19,6 +20,10 @@ class Adder100 extends Module {
   sum := myadder.io.Sum
 }
 
-object Adder100 extends App {
-  (new ChiselStage).emitVerilog(new Adder100, Array("-td", "vout"))
+object Adder100 extends App{
+  ChiselStage.emitSystemVerilogFile(
+    new Adder100,
+    firtoolOpts = Array("-disable-all-randomization", "-strip-debug-info")
+  )
 }
+

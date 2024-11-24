@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.KarnaughMapCircuit
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class ece241_2013_q2 extends RawModule {
   val a = IO(Input(Bool()))
@@ -16,8 +15,4 @@ class ece241_2013_q2 extends RawModule {
   //0 0000 1 0001 4 0100 5 0101 6 0110 9 1001 10 1010 13 1101 14 1110
   out_sop := (c & d) | ((~a) & (~b) & c)
   out_pos := (c) & ((~a) | b) & (d | (~b))
-}
-
-object ece241_2013_q2 extends App {
-  (new ChiselStage).emitVerilog(new ece241_2013_q2, Array("-td", "vout"))
 }

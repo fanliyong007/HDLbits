@@ -1,7 +1,6 @@
 package edu.qsng.Language.Module
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import chisel3.util._
 
 class Vectorxxx extends Module {
@@ -25,8 +24,3 @@ class MyModule extends Module{
   io.a:=modA.io.out_hi
   io.b:=modA.io.out_lo
 }
-
-object MyModule extends App{
-  (new ChiselStage).emitVerilog(new MyModule,Array("-td","vout"))
-}
-

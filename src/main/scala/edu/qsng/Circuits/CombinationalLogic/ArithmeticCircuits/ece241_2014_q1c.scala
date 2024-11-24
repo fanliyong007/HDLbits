@@ -1,8 +1,7 @@
 package edu.qsng.Circuits.CombinationalLogic.ArithmeticCircuits
 
 import chisel3._
-import chisel3.stage.ChiselStage
-import edu.qsng.Language.More.Adder
+import circt.stage.ChiselStage
 
 class ece241_2014_q1c extends Module {
   val a = IO(Input(UInt(8.W)))
@@ -14,6 +13,9 @@ class ece241_2014_q1c extends Module {
   overflow := ~( a(7) ^ b(7) ) & ( s(7) =/= a(7) )
 }
 
-object ece241_2014_q1c extends App {
-  (new ChiselStage).emitVerilog(new ece241_2014_q1c, Array("-td", "vout"))
+object ece241_2014_q1c extends App{
+  ChiselStage.emitSystemVerilogFile(
+    new ece241_2014_q1c,
+    firtoolOpts = Array("-disable-all-randomization", "-strip-debug-info")
+  )
 }

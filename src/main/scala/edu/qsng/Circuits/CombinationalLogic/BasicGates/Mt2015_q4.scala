@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.BasicGates
 
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Mt2015_q4 extends RawModule {
   val x = IO(Input(Bool()))
@@ -16,8 +15,4 @@ class Mt2015_q4 extends RawModule {
   A2:= ~ (x ^ y)
   B2:= ~ (x ^ y)
   z:=(A1 | B1) ^ (A2 & B2)
-}
-
-object Mt2015_q4 extends App {
-  (new ChiselStage).emitVerilog(new Mt2015_q4, Array("-td", "vout"))
 }

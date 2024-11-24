@@ -1,15 +1,25 @@
 package edu.qsng
 
 import chisel3._
-import chisel3.stage.{ChiselGeneratorAnnotation, ChiselStage}
+import circt.stage.ChiselStage
 
-class Zero extends Module {
+class Zero extends RawModule {
   val io = IO(new Bundle {
-    val zero = Output(UInt(1.W))
+    val clk = Input(Clock())
+    val in  = Input(UInt(8.W))
+    val out = Output(UInt(8.W))
   })
-  io.zero := 0.U
+
+  val reg = RegInit(0.U(8.W))
+  reg := io.in // 这将在下一个时钟周期更新reg的值（由Chisel隐式管理）
+  io.out := reg
 }
 
-object Zero extends App{
-  (new ChiselStage).emitVerilog(new Zero,Array("-td","vout"))
-}
+//object Zero extends App{
+//  ChiselStage.emitSystemVerilogFile(
+//    new Zero,
+//    firtoolOpts = Array(
+//      "-disable-all-randomization",
+//      "-strip-debug-info")
+//  )
+//}

@@ -1,6 +1,5 @@
 package edu.qsng.Language.Module
 
-import chisel3.stage.ChiselStage
 import chisel3.util.{Cat, Fill}
 import chisel3._
 
@@ -43,8 +42,4 @@ class Addsub extends Module {
   sum2 := u2_add16.io.sum
 
   io.sum:=Cat(sum2,sum1)
-}
-
-object Addsub extends App{
-  (new ChiselStage).emitVerilog(new Addsub,Array("-td","vout"))
 }

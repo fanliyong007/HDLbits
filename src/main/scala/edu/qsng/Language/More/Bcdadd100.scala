@@ -1,5 +1,4 @@
 package edu.qsng.Language.More
-import chisel3.stage.ChiselStage
 import chisel3.util._
 import chisel3._
 
@@ -26,8 +25,4 @@ class Bcdadd100 extends Module {
   }
   io.cout:=bcd_carry(100)
   io.sum:=bcd_sum.asUInt
-}
-
-object Bcdadd100 extends App{
-  (new ChiselStage).emitVerilog(new Bcdadd100,Array("-td","vout"))
 }

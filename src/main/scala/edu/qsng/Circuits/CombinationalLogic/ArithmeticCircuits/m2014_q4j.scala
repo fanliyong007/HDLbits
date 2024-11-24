@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.ArithmeticCircuits
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import edu.qsng.Language.More.Adder
 
 class m2014_q4j extends Module {
@@ -16,6 +15,3 @@ class m2014_q4j extends Module {
   val tmp = myadder.io.Cout
 }
 
-object m2014_q4j extends App {
-  (new ChiselStage).emitVerilog(new m2014_q4j, Array("-td", "vout"))
-}

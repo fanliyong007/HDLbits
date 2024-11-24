@@ -1,8 +1,7 @@
 package edu.qsng.Circuits.CombinationalLogic.BasicGates
 
-import Chisel.Cat
 import chisel3._
-import chisel3.stage.ChiselStage
+import chisel3.util._
 
 class Gatesv extends RawModule {
 
@@ -18,8 +17,4 @@ class Gatesv extends RawModule {
     Mux(in(2)===in(1),false.B,true.B),
     Mux(in(1)===in(0),false.B,true.B))
 
-}
-
-object Gatesv extends App {
-  (new ChiselStage).emitVerilog(new Gatesv, Array("-td", "vout"))
 }

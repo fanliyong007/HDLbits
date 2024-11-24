@@ -1,9 +1,7 @@
 package edu.qsng.Language.Procedures
 
-import chisel3.stage.ChiselStage
 import chisel3.util._
 import chisel3._
-import chisel3.stage.ChiselStage
 
 class Alwaysif2 extends Module {
   val cpu_overheated=IO(Input(Bool()))
@@ -27,7 +25,4 @@ class Alwaysif2 extends Module {
   }.otherwise {
     t_keep_driving := 0.U
   }
-}
-object Alwaysif2 extends App{
-  (new ChiselStage).emitVerilog(new Alwaysif2,Array("-td","vout"))
 }

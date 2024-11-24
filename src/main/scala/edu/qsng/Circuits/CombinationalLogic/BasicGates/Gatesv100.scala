@@ -1,7 +1,6 @@
 package edu.qsng.Circuits.CombinationalLogic.BasicGates
 
 import chisel3._
-import chisel3.stage.ChiselStage
 import chisel3.util.Cat
 
 class Gatesv100 extends RawModule {
@@ -14,6 +13,3 @@ class Gatesv100 extends RawModule {
   out_different := in(99,0) ^ Cat(in(0),in(99,1))
 }
 
-object Gatesv100 extends App {
-  (new ChiselStage).emitVerilog(new Gatesv100, Array("-td", "vout"))
-}

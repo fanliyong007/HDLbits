@@ -1,8 +1,7 @@
 package edu.qsng.Circuits.CombinationalLogic.Multiplexers
 
 import chisel3._
-import chisel3.stage.ChiselStage
-import chisel3.util.{MuxCase, is, switch}
+import chisel3.util._
 
 class Mux9to1v extends RawModule {
   val a = IO(Input(UInt(16.W)))
@@ -26,8 +25,4 @@ class Mux9to1v extends RawModule {
       (sel === 6.U) -> g,
       (sel === 7.U) -> h,
       (sel === 8.U) -> i))
-}
-
-object Mux9to1v extends App {
-  (new ChiselStage).emitVerilog(new Mux9to1v, Array("-td", "vout"))
 }
