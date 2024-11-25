@@ -16,12 +16,12 @@ class Mux_and_DFF2 extends Module with ImplicitClock {
   }
   Q := QReg
 }
-
-object Mux_and_DFF2 extends App{
-  ChiselStage.emitSystemVerilogFile(
-    gen = new Mux_and_DFF2,
-    firtoolOpts = Array(
-      "-disable-all-randomization",
-      "-strip-debug-info")
-  )
-}
+//
+//object Mux_and_DFF2 extends App{
+//  ChiselStage.emitSystemVerilogFile(
+//    gen = new Mux_and_DFF2,
+//    firtoolOpts = Array(
+//      "-disable-all-randomization",
+//      "-strip-debug-info")
+//  )
+//}
