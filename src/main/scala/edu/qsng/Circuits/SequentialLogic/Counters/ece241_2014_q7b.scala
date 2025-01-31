@@ -27,7 +27,7 @@ class ece241_2014_q7b extends Module with ImplicitClock {
   counter(2).io.enable := c_enable(2)
   q(2) := counter(2).io.Q
 
-  c_enable := Cat((q(1)===9.U)&&(q(0)===9.U),q(0)===9.U, 1.U)//注意使用===而非===
+  c_enable := Cat((q(1)===9.U)&&(q(0)===9.U),q(0)===9.U, 1.U)//注意使用===而非==,在chisel中只有==
   OneHertz := (q(2)===9.U)&&(q(1)===9.U)&&(q(0)===9.U)
 }
 
