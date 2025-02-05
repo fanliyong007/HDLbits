@@ -14,11 +14,12 @@ class MUXDFF extends Module with ImplicitClock{
   val w = IO(Input(Bool()))
   val out = IO(Output(Bool()))
   override protected def implicitClock = clk
-  val mid = Wire(UInt(2.W))
-  mid := Cat(mid(0),Mux(E,w,out))
-  val outReg = Reg(Bool())
-  outReg:=mid(1)
-  out:=outReg
+  val mid0 = Wire(Bool())
+  val mid1 = Wire(Bool())
+  mid0 := Mux(E, w, out)
+  mid1 := Mux(L, R, mid0)
+  val regOut = RegNext(mid1)
+  out := regOut
 }
 
 class Exams2014_q4b extends Module {
@@ -49,7 +50,7 @@ class Exams2014_q4b extends Module {
   ins3.E := KEY(1)
   ins3.L := KEY(2)
   ins3.w := LEDR(1)
-  LEDR:=Cat(ins3.out,ins2.out,ins1.out,ins0.out)
+  LEDR:=Cat(ins0.out,ins1.out,ins2.out,ins3.out)
 }
 
 object Exams2014_q4b extends App{
